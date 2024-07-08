@@ -14,5 +14,21 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Please create a password"]
-    }
+    },
+    isVarified: {
+        type: Boolean,
+        default: false
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    forgotPassword: String,
+    forgotPasswordToeknExpiry: Date,
+    varifyToken: String,
+    varifyToeknExpiry: Date,
 })
+
+const User = mongoose.models.users || mongoose.model("users", userSchema)
+
+export default User
