@@ -1,6 +1,4 @@
-import { error } from "console";
 import mongoose from "mongoose";
-import { exit } from "process";
 
 export async function connectDB() {
     try {
