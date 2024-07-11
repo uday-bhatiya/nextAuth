@@ -22,6 +22,10 @@ export async function POST(request: NextRequest) {
 
         console.log("user exixst")
 
+        if (!user.isVarified) {
+            return NextResponse.json({ error: "User is not verified, Please verify your email" }, { status: 500 })
+        }
+
         const validPassword = bcrypt.compare(password, user.password)
 
         if (!validPassword) {
