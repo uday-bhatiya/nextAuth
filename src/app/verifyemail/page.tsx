@@ -17,7 +17,7 @@ export default function VerifyEmailPage() {
   const verifyEmail = async () => {
     try {
       setLoading(true)
-      await axios.post("/api/users/verifyemail", token);
+      await axios.post("/api/users/verifyemail", {token});
       setVerified(true)
       router.push("/login");
       setLoading(false);
